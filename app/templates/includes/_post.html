@@ -1,0 +1,16 @@
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{ post.author.get_icon_url() }" class="img-fluid rounded-start" alt="avi">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{post.author.first_name}} {{post.author.last_name}} posted:</h5> 
+          <p class="card-text">{{post.body | truncate(150) }}</p>
+
+          <p class="card-text"><small class="text-muted">{{moment (post.date_created).fromNow()}}</small></p>
+          <span style="color: lightblue" class="float-end">{{"edited" + moment(post.date_updated).fromNow() | string() if post.date_update else ''}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
